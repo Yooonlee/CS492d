@@ -45,14 +45,14 @@
 
 ![image-127](첨부파일/image-127.png)
 
-![[image-128.png]]
+![image-128](첨부파일/image-128.png)
 
 
 - 상수를 곱해줌 
 	- 위에서 본 Classifier Guidance와 동일함
-![[image-129.png]]
+![image-129](첨부파일/image-129.png)
 
-![[image-131.png]]
+![image-131](첨부파일/image-131.png)
 
 - 장점
 	- 구현하기 쉽다 (Encoder 하나만 추가하면 됨!)
@@ -71,7 +71,7 @@
 ### Negative Prompt
 - Positive Prompt : High Resolution, 좋은 특성
 - Negative Prompt : 부정적인 특성, Lower Resolution, blurry image
-![[image-132.png]]
+![image-132](첨부파일/image-132.png)
 
 
 # Fine-Tuning-Based Methods
@@ -81,7 +81,7 @@
 - AutoEncoder를 사용함
 	- Latent Space = N(o,I)
 
-![[image-133.png]]
+![image-133](첨부파일/image-133.png)
 
 - Image Encoder (VAE에서 사용하는 KL-Reg ) / Decoder(VQ-VAE에서 사용하는 VQ-Reg)는 Pretrained (빨간색)
 	- 이때 AutoEncoder 학습 시 
@@ -97,10 +97,10 @@
 		- Input: t, $z_{t}$, $\tau(y)$ 
 		- Output :  입력과 동일한 크기의 텐서를 출력하는데, 이 텐서가 바로 예측된 노이즈입니다. 
 		  $\hat{z_{t}}$  = $\hat\epsilon_{t}$ (Diffusion은 입력 차원 = 출력 차원)
-		  ![[image-137.png]]
+		  ![image-137](첨부파일/image-137.png)
 	    그렇게 T-1 번 반복(U-Net + Attention)하여 예측된 노이즈를 실제 추가된 노이즈와 비교하여 손실을 최소화하는 방식으로 모델을 학습시킵니다
-	  ![[image-135.png]]
-		![[image-134.png]]
+	  ![image-135](첨부파일/image-135.png)
+		![image-134](첨부파일/image-134.png)
 - 이후 DDPM Reverse Process를 통해 $\hat{z_{0}}$ 를 구해 Decoder를 거쳐 이미지 생성
 
 
@@ -113,12 +113,12 @@
 ### p-Wasserstein Distance
 - 두 분포 사이의 거리를 측정
 
-![[image-138.png]]
+![image-138](첨부파일/image-138.png)
 - 하나의 분포를 다른 분포와 같게 만들기 위해 옮겨야하는 면적 x 옮겨야하는 거리 
-![[image-139.png]]
+![image-139](첨부파일/image-139.png)
 
 - 두 분포가 모두 정규분포이면 거리는 측정하는 공식이 정해짐
-![[image-140.png]]
+![image-140](첨부파일/image-140.png)
 
 
 - Inception v3 network의 latent space에서 
@@ -127,24 +127,24 @@
 - 단점
 	- Inception v3 의 latent space로 매핑하는 것이 맞냐? 
 	- 정규분포로 가정하는게 맞냐? 
-![[image-141.png]]
+![image-141](첨부파일/image-141.png)
 
 
 - 실제 육안상 차이와 FID 차이가 일치하지 않음 
-![[image-142.png]]
+![image-142](첨부파일/image-142.png)
 
 ## 1. ControlNet
 - 작은 개수(수천 개)의 이미지 쌍으로 Unconditional 모델을 Image conditional 모델로 변환시키자 
 
 - 1. 왼쪽의 Stable Diffusion 의 Noise prediction Network는 Freeze 시키기
-![[image-143.png]]
+![image-143](첨부파일/image-143.png)
 
 
-![[image-144.png]]
+![image-144](첨부파일/image-144.png)
 
 
 
-![[image-145.png]]
+![image-145](첨부파일/image-145.png)
 
 
 ## 2. LoRA
@@ -152,13 +152,13 @@
 - MLP == matrix 연산 후 activation function을 통과하는 것! 
 	- 하나의 MLP Layer를 낮은 차원의 행렬곱 2개로 바꾸자 
 
-![[image-146.png]]
+![image-146](첨부파일/image-146.png)
 
 
-![[image-147.png]]
+![image-147](첨부파일/image-147.png)
 
 
-![[image-148.png]]
+![image-148](첨부파일/image-148.png)
 
 ## 3. 이외..
 1. Adding Conditional Control to Text-to-Image Diffusion Models
